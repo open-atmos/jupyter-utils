@@ -1,8 +1,11 @@
+"""
+the magick behind ``pip install ...``
+"""
 from setuptools import setup, find_packages
-import os
 
 
 def get_long_description():
+    """returns contents of README.md file"""
     with open("README.md", "r", encoding="utf8") as file:
         long_description = file.read()
     return long_description
