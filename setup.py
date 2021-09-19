@@ -16,7 +16,7 @@ setup(
     description='utility routines used in PySDM and PyMPDATA examples and tests',
     use_scm_version=True,
     setup_requires=['setuptools_scm'],
-    install_requires=['ipywidgets', 'IPython'],
+    install_requires=['ipywidgets', 'IPython', 'matplotlib'],
     author='https://github.com/atmos-cloud-sim-uj/utils/graphs/contributors',
     author_email='sylwester.arabas@uj.edu.pl',
     license="GPL-3.0",
