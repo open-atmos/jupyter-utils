@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>atmos_cloud_sim_uj_utils API documentation</title>
-<meta name="description" content="utility routines used in PySDM and PyMPDATA examples and tests" />
+<title>atmos_cloud_sim_uj_utils.temporary_file API documentation</title>
+<meta name="description" content="" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -19,39 +19,133 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Package <code>atmos_cloud_sim_uj_utils</code></h1>
+<h1 class="title">Module <code>atmos_cloud_sim_uj_utils.temporary_file</code></h1>
 </header>
 <section id="section-intro">
-<p>utility routines used in PySDM and PyMPDATA examples and tests</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">&#34;&#34;&#34;
-utility routines used in PySDM and PyMPDATA examples and tests
-&#34;&#34;&#34;
-from atmos_cloud_sim_uj_utils.pip_install_on_colab import pip_install_on_colab
-from atmos_cloud_sim_uj_utils.temporary_file import TemporaryFile</code></pre>
+<pre><code class="python"># pylint: disable-next=missing-module-docstring
+
+import os
+import sys
+import tempfile
+from ipywidgets import HTML, Button
+from IPython.display import FileLink
+
+if &#39;google.colab&#39; in sys.modules:
+    # pylint: disable-next=import-error
+    from google import colab
+    ABSOLUTE_PATH = &#39;/content&#39;
+else:
+    ABSOLUTE_PATH = os.getcwd()
+    RELATIVE_PATH = &#39;.&#39;
+
+
+class TemporaryFile:
+    &#34;&#34;&#34; Jupyter-friendly temporary files with Colab-compatible download-link generation &#34;&#34;&#34;
+
+    def __init__(self, suffix=&#39;.pdf&#39;, filename=None):
+        if filename is None:
+            _, self.absolute_path = tempfile.mkstemp(
+                dir=ABSOLUTE_PATH,
+                suffix=suffix
+            )
+        else:
+            self.absolute_path = os.path.join(ABSOLUTE_PATH, filename)
+        self.basename = os.path.basename(self.absolute_path)
+
+    def __str__(self):
+        return self.absolute_path
+
+    def make_link_widget(self):
+        &#34;&#34;&#34; returns a click-to-download widget to be display()-ed in a Jupyter notebook &#34;&#34;&#34;
+        if &#39;google.colab&#39; in sys.modules:
+            link = Button(description=self.basename)
+            link.on_click(lambda _: colab.files.download(self.absolute_path))
+        else:
+            link = HTML()
+            filename = str(os.path.join(RELATIVE_PATH, self.basename))
+            # pylint: disable-next=protected-access
+            link.value = FileLink(filename)._format_path()
+        return link</code></pre>
 </details>
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt><code class="name"><a title="atmos_cloud_sim_uj_utils.pip_install_on_colab" href="pip_install_on_colab.html">atmos_cloud_sim_uj_utils.pip_install_on_colab</a></code></dt>
+<dt id="atmos_cloud_sim_uj_utils.temporary_file.TemporaryFile"><code class="flex name class">
+<span>class <span class="ident">TemporaryFile</span></span>
+<span>(</span><span>suffix='.pdf', filename=None)</span>
+</code></dt>
 <dd>
-<div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="atmos_cloud_sim_uj_utils.temporary_file" href="temporary_file.html">atmos_cloud_sim_uj_utils.temporary_file</a></code></dt>
+<div class="desc"><p>Jupyter-friendly temporary files with Colab-compatible download-link generation</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TemporaryFile:
+    &#34;&#34;&#34; Jupyter-friendly temporary files with Colab-compatible download-link generation &#34;&#34;&#34;
+
+    def __init__(self, suffix=&#39;.pdf&#39;, filename=None):
+        if filename is None:
+            _, self.absolute_path = tempfile.mkstemp(
+                dir=ABSOLUTE_PATH,
+                suffix=suffix
+            )
+        else:
+            self.absolute_path = os.path.join(ABSOLUTE_PATH, filename)
+        self.basename = os.path.basename(self.absolute_path)
+
+    def __str__(self):
+        return self.absolute_path
+
+    def make_link_widget(self):
+        &#34;&#34;&#34; returns a click-to-download widget to be display()-ed in a Jupyter notebook &#34;&#34;&#34;
+        if &#39;google.colab&#39; in sys.modules:
+            link = Button(description=self.basename)
+            link.on_click(lambda _: colab.files.download(self.absolute_path))
+        else:
+            link = HTML()
+            filename = str(os.path.join(RELATIVE_PATH, self.basename))
+            # pylint: disable-next=protected-access
+            link.value = FileLink(filename)._format_path()
+        return link</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="atmos_cloud_sim_uj_utils.temporary_file.TemporaryFile.make_link_widget"><code class="name flex">
+<span>def <span class="ident">make_link_widget</span></span>(<span>self)</span>
+</code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>returns a click-to-download widget to be display()-ed in a Jupyter notebook</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def make_link_widget(self):
+    &#34;&#34;&#34; returns a click-to-download widget to be display()-ed in a Jupyter notebook &#34;&#34;&#34;
+    if &#39;google.colab&#39; in sys.modules:
+        link = Button(description=self.basename)
+        link.on_click(lambda _: colab.files.download(self.absolute_path))
+    else:
+        link = HTML()
+        filename = str(os.path.join(RELATIVE_PATH, self.basename))
+        # pylint: disable-next=protected-access
+        link.value = FileLink(filename)._format_path()
+    return link</code></pre>
+</details>
 </dd>
 </dl>
-</section>
-<section>
-</section>
-<section>
-</section>
-<section>
+</dd>
+</dl>
 </section>
 </article>
 <nav id="sidebar">
@@ -60,10 +154,19 @@ from atmos_cloud_sim_uj_utils.temporary_file import TemporaryFile</code></pre>
 <ul></ul>
 </div>
 <ul id="index">
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<li><h3>Super-module</h3>
 <ul>
-<li><code><a title="atmos_cloud_sim_uj_utils.pip_install_on_colab" href="pip_install_on_colab.html">atmos_cloud_sim_uj_utils.pip_install_on_colab</a></code></li>
-<li><code><a title="atmos_cloud_sim_uj_utils.temporary_file" href="temporary_file.html">atmos_cloud_sim_uj_utils.temporary_file</a></code></li>
+<li><code><a title="atmos_cloud_sim_uj_utils" href="index.html">atmos_cloud_sim_uj_utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="atmos_cloud_sim_uj_utils.temporary_file.TemporaryFile" href="#atmos_cloud_sim_uj_utils.temporary_file.TemporaryFile">TemporaryFile</a></code></h4>
+<ul class="">
+<li><code><a title="atmos_cloud_sim_uj_utils.temporary_file.TemporaryFile.make_link_widget" href="#atmos_cloud_sim_uj_utils.temporary_file.TemporaryFile.make_link_widget">make_link_widget</a></code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
