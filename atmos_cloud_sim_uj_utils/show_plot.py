@@ -18,5 +18,5 @@ def show_plot(filename=None, fig=pyplot, inline_format='svg'):
 def save_and_make_link(fig, filename=None):
     """ saves a figure as pdf and returns a Jupyter display()-able click-to-download widget """
     temporary_file = TemporaryFile(suffix='.pdf', filename=filename)
-    fig.savefig(temporary_file.absolute_path)
+    fig.savefig(temporary_file.absolute_path, bbox_inches='tight')
     return temporary_file.make_link_widget()
