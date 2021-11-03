@@ -46,7 +46,7 @@ def show_plot(filename=None, fig=pyplot, inline_format=&#39;svg&#39;):
 def save_and_make_link(fig, filename=None):
     &#34;&#34;&#34; saves a figure as pdf and returns a Jupyter display()-able click-to-download widget &#34;&#34;&#34;
     temporary_file = TemporaryFile(suffix=&#39;.pdf&#39;, filename=filename)
-    fig.savefig(temporary_file.absolute_path)
+    fig.savefig(temporary_file.absolute_path, bbox_inches=&#39;tight&#39;)
     return temporary_file.make_link_widget()</code></pre>
 </details>
 </section>
@@ -69,7 +69,7 @@ def save_and_make_link(fig, filename=None):
 <pre><code class="python">def save_and_make_link(fig, filename=None):
     &#34;&#34;&#34; saves a figure as pdf and returns a Jupyter display()-able click-to-download widget &#34;&#34;&#34;
     temporary_file = TemporaryFile(suffix=&#39;.pdf&#39;, filename=filename)
-    fig.savefig(temporary_file.absolute_path)
+    fig.savefig(temporary_file.absolute_path, bbox_inches=&#39;tight&#39;)
     return temporary_file.make_link_widget()</code></pre>
 </details>
 </dd>
