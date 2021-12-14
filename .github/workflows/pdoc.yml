@@ -18,7 +18,7 @@ jobs:
         run: |
           pip install pdoc3
           pip install -e .
-          pdoc --html atmos_cloud_sim_uj_utils
+          python -We -m pdoc --html atmos_cloud_sim_uj_utils
       - name: Deploy
         if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@4.1.1
