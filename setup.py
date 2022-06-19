@@ -25,5 +25,10 @@ setup(
     license="GPL-3.0",
     packages=find_packages(include=['atmos_cloud_sim_uj_utils', 'atmos_clous_sim_uj_utils.*']),
     long_description=get_long_description(),
-    long_description_content_type="text/markdown"
+    long_description_content_type="text/markdown",
+    project_urls={
+        "Tracker": "https://github.com/atmos-cloud-sim-uj/utils/issues",
+        "Documentation": "https://atmos-cloud-sim-uj.github.io/utils",
+        "Source": "https://github.com/atmos-cloud-sim-uj/utils"
+    }
 )
