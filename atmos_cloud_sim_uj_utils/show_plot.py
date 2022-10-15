@@ -1,4 +1,4 @@
-# pylint: disable-next=missing-module-docstring
+# pylint: disable=missing-module-docstring
 
 from matplotlib import pyplot
 from IPython.display import display
