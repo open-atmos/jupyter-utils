@@ -26,13 +26,13 @@
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python"># pylint: disable-next=missing-module-docstring
+<pre><code class="python"># pylint: disable=missing-module-docstring
 
 def pip_install_on_colab(*args):
     &#34;&#34;&#34;executes pip (and ldconfig) ensuring Colab subtleties are handled as sane as it can get&#34;&#34;&#34;
-    # pylint: disable-next=import-outside-toplevel
-    # pylint: disable-next=multiple-imports
-    # pylint: disable-next=import-error
+    # pylint: disable=import-outside-toplevel
+    # pylint: disable=multiple-imports
+    # pylint: disable=import-error
     import subprocess, notebook, tornado, sys
     subprocess.check_call([
       sys.executable, &#39;-m&#39;, &#39;pip&#39;, &#39;--quiet&#39;, &#39;--use-deprecated=legacy-resolver&#39;, &#39;install&#39;,
@@ -61,9 +61,9 @@ def pip_install_on_colab(*args):
 </summary>
 <pre><code class="python">def pip_install_on_colab(*args):
     &#34;&#34;&#34;executes pip (and ldconfig) ensuring Colab subtleties are handled as sane as it can get&#34;&#34;&#34;
-    # pylint: disable-next=import-outside-toplevel
-    # pylint: disable-next=multiple-imports
-    # pylint: disable-next=import-error
+    # pylint: disable=import-outside-toplevel
+    # pylint: disable=multiple-imports
+    # pylint: disable=import-error
     import subprocess, notebook, tornado, sys
     subprocess.check_call([
       sys.executable, &#39;-m&#39;, &#39;pip&#39;, &#39;--quiet&#39;, &#39;--use-deprecated=legacy-resolver&#39;, &#39;install&#39;,
