@@ -1,4 +1,4 @@
-# pylint: disable-next=missing-module-docstring
+# pylint: disable=missing-module-docstring
 
 import os
 import sys
