@@ -23,7 +23,7 @@ setup(
     author='https://github.com/open-atmos/jupyter-utils/graphs/contributors',
     author_email='sylwester.arabas@uj.edu.pl',
     license="GPL-3.0",
-    packages=find_packages(include=['atmos_cloud_sim_uj_utils', 'atmos_clous_sim_uj_utils.*']),
+    packages=find_packages(include=['open_atmos_jupyter_utils', 'open_atmos_jupyter_utils.*']),
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
     project_urls={
