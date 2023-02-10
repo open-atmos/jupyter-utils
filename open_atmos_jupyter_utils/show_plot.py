@@ -4,7 +4,7 @@ from matplotlib import pyplot
 from IPython.display import display
 from IPython.core.interactiveshell import InteractiveShell
 from IPython.core.pylabtools import select_figure_formats
-from atmos_cloud_sim_uj_utils.temporary_file import TemporaryFile
+from open_atmos_jupyter_utils.temporary_file import TemporaryFile
 
 
 def show_plot(filename=None, fig=pyplot, inline_format='svg'):
