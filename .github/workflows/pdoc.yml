@@ -18,7 +18,7 @@ jobs:
         run: |
           pip install pdoc3
           pip install -e .
-          python -We -m pdoc --html open_atmos_jupyter_utils
+          JUPYTER_PLATFORM_DIRS=1 python -We -m pdoc --html open_atmos_jupyter_utils
       - name: Deploy
         if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@4.1.1
