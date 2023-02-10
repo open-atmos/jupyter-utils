@@ -12,7 +12,7 @@ def get_long_description():
 
 
 setup(
-    name='atmos-cloud-sim-uj-utils',
+    name='open-atmos-jupyter-utils',
     description='utility routines used in PySDM and PyMPDATA examples and tests',
     use_scm_version={
         "local_scheme": lambda _: "",
@@ -20,15 +20,15 @@ setup(
     },
     setup_requires=['setuptools_scm'],
     install_requires=['ipywidgets', 'IPython', 'matplotlib'],
-    author='https://github.com/atmos-cloud-sim-uj/utils/graphs/contributors',
+    author='https://github.com/open-atmos/jupyter-utils/graphs/contributors',
     author_email='sylwester.arabas@uj.edu.pl',
     license="GPL-3.0",
     packages=find_packages(include=['atmos_cloud_sim_uj_utils', 'atmos_clous_sim_uj_utils.*']),
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
     project_urls={
-        "Tracker": "https://github.com/atmos-cloud-sim-uj/utils/issues",
-        "Documentation": "https://atmos-cloud-sim-uj.github.io/utils",
-        "Source": "https://github.com/atmos-cloud-sim-uj/utils"
+        "Tracker": "https://github.com/open-atmos/jupyter-utils/issues",
+        "Documentation": "https://open-atmos.github.io/jupyter-utils",
+        "Source": "https://github.com/open-atmos/jupyter-utils"
     }
 )
