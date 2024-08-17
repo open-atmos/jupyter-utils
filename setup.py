@@ -26,4 +26,5 @@ setup(
     packages=find_packages(include=['open_atmos_jupyter_utils', 'open_atmos_jupyter_utils.*']),
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
+    url='https://github.com/open-atmos/jupyter-utils',
 )
