@@ -21,7 +21,7 @@ def save_and_make_link(fig, filename=None):
     """ saves a figure as pdf and returns a Jupyter display()-able click-to-download widget """
     temporary_files = [
         TemporaryFile(suffix=suffix, filename=(
-            filename if filename is None else 
+            filename if filename is None else
             ((filename if not filename.endswith('.pdf') else filename[:-4]) + suffix)
         ))
         for suffix in ('.pdf', '.svg')
