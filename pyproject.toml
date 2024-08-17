@@ -3,3 +3,8 @@
 # TODO
 [build-system]
 requires = ['setuptools==56.0.0', 'setuptools-scm==6.0.1']
+
+[project.urls]
+"Tracker" = "https://github.com/open-atmos/jupyter-utils/issues"
+"Documentation" = "https://open-atmos.github.io/jupyter-utils"
+"Source" = "https://github.com/open-atmos/jupyter-utils"
