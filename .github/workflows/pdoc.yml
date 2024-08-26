@@ -18,13 +18,13 @@ jobs:
           python-version: "3.11"
       - name: Build
         run: |
-          pip install pdoc3
+          pip install pdoc
           pip install -e .
-          JUPYTER_PLATFORM_DIRS=1 python -We -m pdoc --html open_atmos_jupyter_utils
+          JUPYTER_PLATFORM_DIRS=1 PDOC_ALLOW_EXEC=1 python -We -m pdoc -o html open_atmos_jupyter_utils
       - name: Deploy
         if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           BRANCH: pdoc
-          FOLDER: html/open_atmos_jupyter_utils
+          FOLDER: html
           CLEAN: true
