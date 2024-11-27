@@ -10,6 +10,12 @@ description = "utility routines used in PySDM, PyMPDATA and PyPartMC examples an
 license = {text = "GPL-3.0"}
 readme = "README.md"
 dynamic = ["version"]
+dependencies = [
+    "ipywidgets",
+    "IPython",
+    "matplotlib",
+    "imageio",
+]
 [project.urls]
 "Homepage" = "https://github.com/open-atmos/jupyter-utils"
 "Source" = "https://github.com/open-atmos/jupyter-utils"
