@@ -19,7 +19,7 @@ setup(
         "version_scheme": "post-release"
     },
     setup_requires=['setuptools_scm'],
-    install_requires=['ipywidgets', 'IPython', 'matplotlib'],
+    install_requires=['ipywidgets', 'IPython', 'matplotlib', 'imageio'],
     author='https://github.com/open-atmos/jupyter-utils/graphs/contributors',
     author_email='sylwester.arabas@agh.edu.pl',
     license="GPL-3.0",

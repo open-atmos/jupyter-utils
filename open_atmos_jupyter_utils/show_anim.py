@@ -1,4 +1,5 @@
-"""inline animation function that allows rendering on github preview and showing click to download gif button"""
+"""inline animation function that allows rendering on github
+ preview and showing click to download gif button"""
 
 import os
 import tempfile
