@@ -12,14 +12,14 @@ from setuptools import setup, find_packages
 
 
 setup(
-    use_scm_version={
-        "local_scheme": lambda _: "",
-        "version_scheme": "post-release"
-    },
-    setup_requires=['setuptools_scm','setuptools'],
-    install_requires=['ipywidgets', 'IPython', 'matplotlib', 'imageio'],
-    packages=find_packages(include=['open_atmos_jupyter_utils', 'open_atmos_jupyter_utils.*']),
-    #long_description=get_long_description(),
-    #long_description_content_type="text/markdown",
-    url='https://github.com/open-atmos/jupyter-utils',
+    # use_scm_version={
+    #     "local_scheme": lambda _: "",
+    #     "version_scheme": "post-release"
+    # },
+    # setup_requires=['setuptools_scm','setuptools'],
+    # install_requires=['ipywidgets', 'IPython', 'matplotlib', 'imageio'],
+    # packages=find_packages(include=['open_atmos_jupyter_utils', 'open_atmos_jupyter_utils.*']),
+    # #long_description=get_long_description(),
+    # #long_description_content_type="text/markdown",
+    #url='https://github.com/open-atmos/jupyter-utils',
 )
