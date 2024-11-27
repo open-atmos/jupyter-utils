@@ -1,8 +1,11 @@
+[tool.setuptools]
+
 [tool.setuptools_scm]
 
 # TODO
 [build-system]
 requires = ['setuptools', 'setuptools-scm']
+build-backend = "setuptools.build_meta"
 
 [project]
 name = 'open-atmos-jupyter-utils'
