@@ -2,8 +2,14 @@
 
 # TODO
 [build-system]
-requires = ['setuptools==56.0.0', 'setuptools-scm==6.0.1']
+requires = ['setuptools', 'setuptools-scm']
 
+[project]
+name = 'open-atmos-jupyter-utils'
+description = "utility routines used in PySDM, PyMPDATA and PyPartMC examples and tests"
+license = {text = "GPL-3.0"}
+readme = "README.md"
+dynamic = ["version"]
 [project.urls]
 "Homepage" = "https://github.com/open-atmos/jupyter-utils"
 "Source" = "https://github.com/open-atmos/jupyter-utils"
