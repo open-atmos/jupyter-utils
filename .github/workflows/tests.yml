@@ -1,4 +1,4 @@
-fname: tests
+name: tests
 
 on:
   push:
