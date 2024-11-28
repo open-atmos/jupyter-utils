@@ -21,10 +21,10 @@ def show_anim(plot_func, frame_range, duration=0.01, loop=0):
             fig.savefig(f"{tmpdirname}/{frame:05d}.png")
             plt.close(fig)
         __merge_images_into_gif(tmpdirname, gif_file, duration, loop)
-        with open(gif_file.basename, "rb").read() as gifname:
-            b64 = base64.b64encode(gifname.decode("ascii"))
-            display(HTML(f'<img src="data:image/gif;base64,{b64}" />'))
-            display(gif_file.make_link_widget())
+
+        b64 = base64.b64encode(open(gif_file.basename,'rb').read()).decode("ascii")
+        display(HTML(f'<img src="data:image/gif;base64,{b64}" />'))
+        display(gif_file.make_link_widget())
 
 
 def __merge_images_into_gif(image_folder, gif_name, duration, loop):
