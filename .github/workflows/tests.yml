@@ -1,4 +1,4 @@
-name: tests
+fname: tests
 
 on:
   push:
@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.12
+      - name: Run tests
         run: |
           pip install -r tests/devops_tests/requirements.txt
           pytest -vv -rP -We tests/devops_tests/test_notebooks.py::test_run_notebook
