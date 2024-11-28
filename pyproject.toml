@@ -1,9 +1,24 @@
+[tool.setuptools]
+
 [tool.setuptools_scm]
 
 # TODO
 [build-system]
-requires = ['setuptools==56.0.0', 'setuptools-scm==6.0.1']
+requires = ['setuptools==75.3.0', 'setuptools-scm==8.1.0']
+build-backend = "setuptools.build_meta"
 
+[project]
+name = 'open-atmos-jupyter-utils'
+description = "utility routines used in PySDM, PyMPDATA and PyPartMC examples and tests"
+license = {text = "GPL-3.0"}
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    "ipywidgets",
+    "IPython",
+    "matplotlib",
+    "imageio",
+]
 [project.urls]
 "Homepage" = "https://github.com/open-atmos/jupyter-utils"
 "Source" = "https://github.com/open-atmos/jupyter-utils"
