@@ -1,0 +1,3 @@
+[submodule "tests/devops_tests.git"]
+	path = tests/devops_tests.git
+	url = git@github.com:open-atmos/devops_tests.git
