@@ -1,7 +1,7 @@
 """inline animation function that allows rendering on github
  preview and showing click to download gif button"""
 
-#pylint: disable=consider-using-wtih
+#pylint: disable=consider-using-with
 import os
 import tempfile
 import base64
