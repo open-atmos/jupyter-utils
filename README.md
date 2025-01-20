@@ -10,5 +10,6 @@ Utility routines used in Jupyter notebooks in [PySDM](https://github.com/open-at
 - [``show_anim()``](https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/show_anim.html) - a replacement for matplotlib's FuncAnimate() that inline-displays animations in gif format (thus github renderer compatible) and offers a way to download the .gif file (on Colab the widget triggers Google Drive download) 
 - [``TemporaryFile``](https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/temporary_file.html) - a class equipped with ``make_link_widget()`` method returning a click-to-download Colab-compatible widget to be display()-ed in a Jupyter notebook
 - [``pip_install_on_colab('package_a', 'package_b', ...)``](https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/pip_install_on_colab.html) - a function handling execution of ``pip`` (and ``ldconfig``) on Colab 
+- [``notebook_vars``](https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/notebook_vars) - a function that executes Jupyter notebook and returns a dictionary with the variables
 
 public API docs are maintained at: https://open-atmos.github.io/jupyter-utils/
