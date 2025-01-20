@@ -11,7 +11,6 @@ import examples
 @pytest.fixture(scope="session", name="notebook_variables")
 def notebook_variables_fixture():
     """returns variables from the notebook """
-    print(examples.__file__)
     return notebook_vars(
         file=Path(examples.__file__).parent / "notebook_vars_example.ipynb",
         plot=False,
