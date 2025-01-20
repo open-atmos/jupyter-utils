@@ -13,9 +13,10 @@ def notebook_variables_fixture():
     """returns variables from the notebook """
     print(examples.__file__)
     return notebook_vars(
-        file=Path(examples.__file__).parent / "show_anim_example.ipynb",
+        file=Path(examples.__file__).parent / "notebook_vars_example.ipynb",
         plot=False,
     )
 
 def test_notebook_vars(notebook_variables):
-    assert notebook_variables["frame_range"][-1]==49
+    """ checks for a value known only after notebook execution"""
+    assert notebook_variables["c"] == notebook_variables["a"] + notebook_variables["b"]
