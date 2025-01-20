@@ -18,6 +18,7 @@ dependencies = [
     "IPython",
     "matplotlib",
     "imageio",
+    "nbformat"
 ]
 [project.urls]
 "Homepage" = "https://github.com/open-atmos/jupyter-utils"
