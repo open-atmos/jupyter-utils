@@ -15,7 +15,7 @@ def show_anim(plot_func, frame_range, duration=0.01, loop=0, gif_file=None):
     """plot_func is called with one argument - the frame number from frame_range
     and is expected to return a matplotlib figure instance (on which savefig()
     and close() are subsequently called)"""
-    gif_file = gif_file or TemporaryFile(suffix=".gif")
+    gif_file = TemporaryFile(suffix=".gif", filename=gif_file)
     with tempfile.TemporaryDirectory() as tmpdirname:
         for frame in frame_range:
             fig = plot_func(frame)
