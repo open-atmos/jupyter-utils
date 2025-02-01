@@ -26,8 +26,8 @@
   <li><a href="#open-atmos-jupyter-utils">open-atmos-jupyter-utils</a>
   <ul>
     <li><a href="#features">Features</a></li>
-    <li><a href="#functions">Functions</a></li>
-    <li><a href="#instalation">Instalation</a></li>
+    <li><a href="#functions-and-examples">Functions and Examples</a></li>
+    <li><a href="#usage">Usage</a></li>
     <li><a href="#documentation">Documentation</a></li>
     <li><a href="#use-cases">Use Cases</a></li>
   </ul></li>
@@ -76,16 +76,19 @@ for:</p>
 <li>pip-installation of external packages on Colab safeguarded against <a href="https://github.com/googlecolab/colabtools/issues/2837">alterations of Google-shipped packages</a></li>
 </ul>
 
-<h2 id="functions">Functions</h2>
+<h2 id="functions-and-examples">Functions and Examples</h2>
 
 <ul>
 <li><a href="https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/show_plot.html"><code>show_plot()</code></a> - a drop-in replacement for matplotlib.pyplot.show() that displays figures inline as SVG vector graphics. The function also provides a download widget that allows users to download the figure as PDF or SVG. On Google Colab, the widget triggers a Google Drive download.</li>
-<li><a href="https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/show_anim.html"><code>show_anim()</code></a> - a replacement for matplotlib.animation.FuncAnimation that displays inline animations in GIF format (which is compatible with GitHub rendering). It also provides a download widget to save the animation as a GIF file, with Colab support for Google Drive download.</li>
-<li><a href="https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/notebook_vars"><code>notebook_vars(notebook: Path, plot: bool)</code></a> - a function that executes notebook code and returns a dictionary of variables present in the notebook. This is particularly useful for setting up automated tests using pytest fixtures without any modification to the original notebooks. The <code>plot</code> flag controls if <code>show_plot()</code> calls within the notebook should be run or not.</li>
+<li><a href="https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/show_anim.html"><code>show_anim(plot_func: typing.Callable, frame_range: typing.Iterable)</code></a> - a replacement for matplotlib.animation.FuncAnimation that displays inline animations in GIF format (which is compatible with GitHub rendering). It also provides a download widget to save the animation as a GIF file, with Colab support for Google Drive download. Example:<br />
+<a href="https://github.com/open-atmos/jupyter-utils/blob/main/examples/show_anim.ipynb"><img src="https://img.shields.io/static/v1?label=render%20on&logo=github&color=87ce3e&message=GitHub" alt="preview notebook" /></a>
+<a href="https://mybinder.org/v2/gh/open-atmos/jupyter-utils.git/main?urlpath=lab/tree/examples/show_anim.ipynb"><img src="https://mybinder.org/badge_logo.svg" alt="launch on mybinder.org" /></a>
+<a href="https://colab.research.google.com/github/open-atmos/jupyter-utils/blob/main/examples/show_anim.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="launch on Colab" /></a></li>
+<li><a href="https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/notebook_vars"><code>notebook_vars(notebook: pathlib.Path, plot: bool)</code></a> - a function that executes notebook code and returns a dictionary of variables present in the notebook. This is particularly useful for setting up automated tests using pytest fixtures without any modification to the original notebooks. The <code>plot</code> flag controls if <code>show_plot()</code> calls within the notebook should be run or not.</li>
 <li><a href="https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/pip_install_on_colab.html"><code>pip_install_on_colab('package_a', 'package_b', ...)</code></a> - a function that automates the installation of Python packages in Colab environments via pip (and ldconfig for system libraries). This ensures smooth setup for notebooks running on Colab.</li>
 </ul>
 
-<h2 id="instalation">Instalation</h2>
+<h2 id="usage">Usage</h2>
 
 <p>For installation use:</p>
 
