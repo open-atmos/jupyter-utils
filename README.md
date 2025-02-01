@@ -16,6 +16,9 @@ for:
 
 ## Functions and Examples
 - [``show_plot()``](https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/show_plot.html) - a drop-in replacement for matplotlib.pyplot.show() that displays figures inline as SVG vector graphics. The function also provides a download widget that allows users to download the figure as PDF or SVG. On Google Colab, the widget triggers a Google Drive download.
+  [![preview notebook](https://img.shields.io/static/v1?label=render%20on&logo=github&color=87ce3e&message=GitHub)](https://github.com/open-atmos/jupyter-utils/blob/main/examples/show_plot.ipynb)
+  [![launch on mybinder.org](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/open-atmos/jupyter-utils.git/main?urlpath=lab/tree/examples/show_plot.ipynb)
+  [![launch on Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/open-atmos/jupyter-utils/blob/main/examples/show_plot.ipynb)
 - [``show_anim(plot_func: typing.Callable, frame_range: typing.Iterable)``](https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/show_anim.html) - a replacement for matplotlib.animation.FuncAnimation that displays inline animations in GIF format (which is compatible with GitHub rendering). It also provides a download widget to save the animation as a GIF file, with Colab support for Google Drive download. Example:  
   [![preview notebook](https://img.shields.io/static/v1?label=render%20on&logo=github&color=87ce3e&message=GitHub)](https://github.com/open-atmos/jupyter-utils/blob/main/examples/show_anim.ipynb)
   [![launch on mybinder.org](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/open-atmos/jupyter-utils.git/main?urlpath=lab/tree/examples/show_anim.ipynb)
