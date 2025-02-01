@@ -23,7 +23,14 @@
 
             <h2>Contents</h2>
             <ul>
-  <li><a href="#open-atmos-jupyter-utils">open-atmos-jupyter-utils</a></li>
+  <li><a href="#open-atmos-jupyter-utils">open-atmos-jupyter-utils</a>
+  <ul>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#functions">Functions</a></li>
+    <li><a href="#instalation">Instalation</a></li>
+    <li><a href="#documentation">Documentation</a></li>
+    <li><a href="#use-cases">Use Cases</a></li>
+  </ul></li>
 </ul>
 
 
@@ -57,17 +64,51 @@ open_atmos_jupyter_utils    </h1>
 <a href="https://pypi.org/project/open-atmos-jupyter-utils"><img src="https://badge.fury.io/py/open-atmos-jupyter-utils.svg" alt="PyPI version" /></a>
 <a href="https://github.com/open-atmos/jupyter-utils"><img src="https://img.shields.io/badge/jupyter--utils-code_repository-gold?logo=github" alt="Github repo" /></a></p>
 
-<p>Utility routines used in Jupyter notebooks in <a href="https://github.com/open-atmos/PySDM">PySDM</a>, <a href="https://github.com/open-atmos/PyMPDATA">PyMPDATA</a> and <a href="https://github.com/open-atmos/PyPartMC">PyPartMC</a> projects:</p>
+<h2 id="features">Features</h2>
+
+<p><code>open-atmos-jupyter-utils</code> is a Python package providing Jupyter notebook utility routines 
+for:</p>
 
 <ul>
-<li><a href="https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/show_plot.html"><code>show_plot()</code></a> - a drop-in replacement for matplotlib's show() displaying the figure inline using vector graphics (svg) by default and offering a download-as-pdf-or-svg widget just below (on Colab the widget triggers Google Drive download)</li>
-<li><a href="https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/show_anim.html"><code>show_anim()</code></a> - a replacement for matplotlib's FuncAnimate() that inline-displays animations in gif format (thus github renderer compatible) and offers a way to download the .gif file (on Colab the widget triggers Google Drive download) </li>
-<li><a href="https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/temporary_file.html"><code>TemporaryFile</code></a> - a class equipped with <code>make_link_widget()</code> method returning a click-to-download Colab-compatible widget to be display()-ed in a Jupyter notebook</li>
-<li><a href="https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/pip_install_on_colab.html"><code>pip_install_on_colab('package_a', 'package_b', ...)</code></a> - a function handling execution of <code>pip</code> (and <code>ldconfig</code>) on Colab </li>
-<li><a href="https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/notebook_vars"><code>notebook_vars</code></a> - a function that executes Jupyter notebook and returns a dictionary with all variables notebook variables (variable names as keys) - useful in setting up automated tests for notebooks without modifying the notebooks (e.g., using pytest fixtures)</li>
+<li>presenting <a href="https://matplotlib.org">matplotlib</a> plots as either SVG vector graphics or animated GIFs, embedding them within the notebooks, and rendering correctly in <a href="https://github.blog/changelog/2023-03-01-feature-preview-rich-jupyter-notebook-diffs/">GitHub's Rich Jupyter Notebook diffs</a></li>
+<li>save-as buttons below each figure (triggering <a href="https://colab.research.google.com/notebooks/io.ipynb#scrollTo=hauvGV4hV-Mh">Google-Drive downloads</a> on <a href="https://colab.google/">Colab</a>)</li>
+<li>execution of unmodified notebook code for automated testing (e.g., within <a href="https://docs.pytest.org/en/stable/explanation/fixtures.html">pytest fixtures</a>)</li>
+<li>pip-installation of external packages on Colab safeguarded against <a href="https://github.com/googlecolab/colabtools/issues/2837">alterations of Google-shipped packages</a></li>
 </ul>
 
-<p>public API docs are maintained at: <a href="https://open-atmos.github.io/jupyter-utils/">https://open-atmos.github.io/jupyter-utils/</a></p>
+<h2 id="functions">Functions</h2>
+
+<ul>
+<li><a href="https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/show_plot.html"><code>show_plot()</code></a> - a drop-in replacement for matplotlib.pyplot.show() that displays figures inline as SVG vector graphics. The function also provides a download widget that allows users to download the figure as PDF or SVG. On Google Colab, the widget triggers a Google Drive download.</li>
+<li><a href="https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/show_anim.html"><code>show_anim()</code></a> - a replacement for matplotlib.animation.FuncAnimation that displays inline animations in GIF format (which is compatible with GitHub rendering). It also provides a download widget to save the animation as a GIF file, with Colab support for Google Drive download.</li>
+<li><a href="https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/notebook_vars"><code>notebook_vars(notebook: Path, plot: bool)</code></a> - a function that executes notebook code and returns a dictionary of variables present in the notebook. This is particularly useful for setting up automated tests using pytest fixtures without any modification to the original notebooks. The <code>plot</code> flag controls if <code>show_plot()</code> calls within the notebook should be run or not.</li>
+<li><a href="https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/pip_install_on_colab.html"><code>pip_install_on_colab('package_a', 'package_b', ...)</code></a> - a function that automates the installation of Python packages in Colab environments via pip (and ldconfig for system libraries). This ensures smooth setup for notebooks running on Colab.</li>
+</ul>
+
+<h2 id="instalation">Instalation</h2>
+
+<p>For installation use:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>open-atmos-jupyter-utils
+</code></pre>
+</div>
+
+<p>Then import inside Python project</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">open_atmos_jupyter_utils</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">oaju</span>
+</code></pre>
+</div>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>Public API docs are maintained at: <a href="https://open-atmos.github.io/jupyter-utils/">https://open-atmos.github.io/jupyter-utils/</a></p>
+
+<h2 id="use-cases">Use Cases</h2>
+
+<p>open-atmos-jupyter-utils has been developed for and used in numerous Jupyter
+notebooks in <a href="https://github.com/open-atmos/PySDM">PySDM</a>, <a href="https://github.com/open-atmos/PyMPDATA">PyMPDATA</a> and <a href="https://github.com/open-atmos/PyPartMC">PyPartMC</a> projects.</p>
 </div>
 
                         <input id="mod-open_atmos_jupyter_utils-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
