@@ -13,7 +13,6 @@ def get_long_description():
 
 
 setup(
-    use_scm_version={"local_scheme": lambda _: "", "version_scheme": "post-release"},
     packages=find_packages(
         include=["open_atmos_jupyter_utils", "open_atmos_jupyter_utils.*"]
     ),
