@@ -5,33 +5,36 @@
 [![PyPI version](https://badge.fury.io/py/open-atmos-jupyter-utils.svg)](https://pypi.org/project/open-atmos-jupyter-utils)
 [![Github repo](https://img.shields.io/badge/jupyter--utils-code_repository-gold?logo=github)](https://github.com/open-atmos/jupyter-utils)
 
-`open-atmos-jupyter-utils` is a Python package designed to provide utility routines that enhance the use of Jupyter notebooks in research and development workflows. 
-
 ## Features
-- Improved Visualization Handling: Display inline vector graphics and animations and embed them in Jupyter notebooks which is compatible with GitHub, Jupyter Book and Colab.
-- Integration with Automated Testing: The package enables the execution of notebook code as part of automated test suites (pytest framework). This helps maintain robust regression tests while keeping the notebooks intact.
-- Pytest Integration: The notebook_vars() function allows for the execution of notebook code once during test sessions, enabling the reuse of final notebook states across multiple automated tests.
+
+`open-atmos-jupyter-utils` is a Python package providing Jupyter notebook utility routines 
+for:
+- presenting [matplotlib](https://matplotlib.org) plots as either SVG vector graphics or animated GIFs, embedding them within the notebooks, and rendering correctly in [GitHub's Rich Jupyter Notebook diffs](https://github.blog/changelog/2023-03-01-feature-preview-rich-jupyter-notebook-diffs/)
+- save-as buttons below each figure (triggering [Google-Drive downloads](https://colab.research.google.com/notebooks/io.ipynb#scrollTo=hauvGV4hV-Mh) on [Colab](https://colab.google/))
+- execution of unmodified notebook code for automated testing (e.g., within [pytest fixtures](https://docs.pytest.org/en/stable/explanation/fixtures.html))
+- pip-installation of external packages on Colab safeguarded against [alterations of Google-shipped packages](https://github.com/googlecolab/colabtools/issues/2837)
 
 ## Functions
 - [``show_plot()``](https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/show_plot.html) - a drop-in replacement for matplotlib.pyplot.show() that displays figures inline as SVG vector graphics. The function also provides a download widget that allows users to download the figure as PDF or SVG. On Google Colab, the widget triggers a Google Drive download.
-- [``show_anim()``](https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/show_anim.html) - a replacement for matplotlib.animation.FuncAnimation that displays inline animations in GIF format (which is compatible with GitHub rendering). It also provides a download widget to save the animation as a .gif file, with Colab support for Google Drive download.
-- [``TemporaryFile``](https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/temporary_file.html) - a class equipped with ``make_link_widget()`` method returning a click-to-download Colab-compatible widget to be display()-ed in a Jupyter notebook
+- [``show_anim()``](https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/show_anim.html) - a replacement for matplotlib.animation.FuncAnimation that displays inline animations in GIF format (which is compatible with GitHub rendering). It also provides a download widget to save the animation as a GIF file, with Colab support for Google Drive download.
+- [``notebook_vars(notebook: Path, plot: bool)``](https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/notebook_vars) - a function that executes notebook code and returns a dictionary of variables present in the notebook. This is particularly useful for setting up automated tests using pytest fixtures without any modification to the original notebooks. The `plot` flag controls if `show_plot()` calls within the notebook should be run or not.
 - [``pip_install_on_colab('package_a', 'package_b', ...)``](https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/pip_install_on_colab.html) - a function that automates the installation of Python packages in Colab environments via pip (and ldconfig for system libraries). This ensures smooth setup for notebooks running on Colab.
-- [``notebook_vars``](https://open-atmos.github.io/jupyter-utils/open_atmos_jupyter_utils/notebook_vars) - a function that executes notebook code and returns a dictionary of variables present in the notebook. This is particularly useful for setting up automated tests using pytest fixtures without any modification to the original notebooks.
 
 ## Instalation
-For instalation use:
-```angular2html
+For installation use:
+```bash
 pip install open-atmos-jupyter-utils
 ```
 Then import inside Python project
-```angular2html
+```Python
 import open_atmos_jupyter_utils as oaju
 ```
+
 ## Documentation
 Public API docs are maintained at: https://open-atmos.github.io/jupyter-utils/
 
 
 ## Use Cases
 
-open-atmos-jupyter-utils was developed and refined through the maintenance and enhancement of [PySDM](https://github.com/open-atmos/PySDM), [PyMPDATA](https://github.com/open-atmos/PyMPDATA) and [PyPartMC](https://github.com/open-atmos/PyPartMC) projects.
+open-atmos-jupyter-utils has been developed for and used in numerous Jupyter
+notebooks in [PySDM](https://github.com/open-atmos/PySDM), [PyMPDATA](https://github.com/open-atmos/PyMPDATA) and [PyPartMC](https://github.com/open-atmos/PyPartMC) projects.
