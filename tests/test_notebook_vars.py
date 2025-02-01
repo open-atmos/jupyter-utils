@@ -12,7 +12,7 @@ import examples
 def notebook_variables_fixture():
     """returns variables from the notebook """
     return notebook_vars(
-        file=Path(examples.__file__).parent / "notebook_vars_example.ipynb",
+        file=Path(examples.__file__).parent / "notebook_vars.ipynb",
         plot=False,
     )
 

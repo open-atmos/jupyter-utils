@@ -2,6 +2,7 @@
  preview and showing click to download gif button"""
 
 #pylint: disable=consider-using-with
+from typing import Iterable, Callable
 import os
 import tempfile
 import base64
@@ -11,7 +12,7 @@ from IPython.display import HTML, display
 from open_atmos_jupyter_utils.temporary_file import TemporaryFile
 
 
-def show_anim(plot_func, frame_range, duration=0.01, loop=0, gif_file=None):
+def show_anim(plot_func: Callable, frame_range: Iterable, duration=0.01, loop=0, gif_file=None):
     """plot_func is called with one argument - the frame number from frame_range
     and is expected to return a matplotlib figure instance (on which savefig()
     and close() are subsequently called)"""
