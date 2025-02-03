@@ -1,7 +1,7 @@
 # open-atmos-jupyter-utils
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
-[![Github Actions Status](https://github.com/open-atmos/jupyter-utils/workflows/Pylint/badge.svg?branch=main)](https://github.com/open-atmos/jupyter-utils/actions)
+[![tests](https://github.com/open-atmos/jupyter-utils/actions/workflows/tests.yml/badge.svg)](https://github.com/open-atmos/jupyter-utils/actions/workflows/tests.yml)
 [![PyPI version](https://badge.fury.io/py/open-atmos-jupyter-utils.svg)](https://pypi.org/project/open-atmos-jupyter-utils)
 [![Github repo](https://img.shields.io/badge/jupyter--utils-code_repository-gold?logo=github)](https://github.com/open-atmos/jupyter-utils)
 
