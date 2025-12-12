@@ -22,7 +22,7 @@ class TestNotebookVars:
     def test_notebook_vars(notebook_variables):
         """ checks for a value known only after notebook execution"""
         assert notebook_variables["c"] == notebook_variables["a"] + notebook_variables["b"]
-    
+
     @staticmethod
     def test_plots_closed():
         """ checks all figures closed """
