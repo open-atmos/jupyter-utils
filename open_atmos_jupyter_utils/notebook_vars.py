@@ -1,7 +1,7 @@
 """ helper routines for use in smoke tests """
 
 from pathlib import Path
-
+from matplotlib import pyplot
 import nbformat
 
 
@@ -28,4 +28,5 @@ def notebook_vars(file: Path, plot: bool):
                     )
 
             exec("\n".join(lines), context)  # pylint: disable=exec-used
+    pyplot.close("all")
     return context
