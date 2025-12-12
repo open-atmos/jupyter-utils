@@ -8,7 +8,7 @@ from IPython.core.pylabtools import select_figure_formats
 from open_atmos_jupyter_utils.temporary_file import TemporaryFile
 
 
-def show_plot(filename=None, fig=pyplot.figure, inline_format='svg'):
+def show_plot(filename=None, inline_format='svg'):
     """ the missing click-to-save-as-pdf-or-svg button for matplotlib/Jupyter 
     (use instead of *.show()) """
     link = save_and_make_link(filename)

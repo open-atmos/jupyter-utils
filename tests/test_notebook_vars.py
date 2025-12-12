@@ -26,5 +26,5 @@ class TestNotebookVars:
     @staticmethod
     def test_plots_closed(notebook_variables):
         """ checks all figures closed """
-        assert isinstance(notebook_variables["fig"], matplotlib.figure.Figure) 
+        assert isinstance(notebook_variables["fig"], matplotlib.figure.Figure)
         assert 0 == len(matplotlib.pyplot.get_fignums())
