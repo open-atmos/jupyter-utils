@@ -4,6 +4,7 @@ test checking notebook_vars function
 
 from pathlib import Path
 import pytest
+import matplotlib
 
 from open_atmos_jupyter_utils import notebook_vars
 import examples
@@ -19,3 +20,7 @@ def notebook_variables_fixture():
 def test_notebook_vars(notebook_variables):
     """ checks for a value known only after notebook execution"""
     assert notebook_variables["c"] == notebook_variables["a"] + notebook_variables["b"]
+
+def test_plots_closed(notebook_variables):
+    """ checks all figures closed """
+    assert 0 == len(matplotlib.pyplot.get_fignums())
