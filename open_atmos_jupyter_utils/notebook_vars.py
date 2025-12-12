@@ -1,7 +1,7 @@
 """ helper routines for use in smoke tests """
 
 from pathlib import Path
-from matplotlib import pyplot
+
 import nbformat
 
 
