@@ -24,9 +24,8 @@ def notebook_vars(file: Path, plot: bool):
                     lines[i] = line.replace(
                         "show_plot(",
                         "from matplotlib import pyplot; "
-                        + ("pyplot.show() #" if plot else "pyplot.gca().clear() #"),
+                        + ("pyplot.show() #" if plot else "pyplot.close() #"),
                     )
 
             exec("\n".join(lines), context)  # pylint: disable=exec-used
-    pyplot.close("all")
     return context
