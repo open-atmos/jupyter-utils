@@ -16,11 +16,14 @@ def notebook_variables_fixture():
         file=Path(examples.__file__).parent / "notebook_vars.ipynb",
         plot=False,
     )
-
-def test_notebook_vars(notebook_variables):
-    """ checks for a value known only after notebook execution"""
-    assert notebook_variables["c"] == notebook_variables["a"] + notebook_variables["b"]
-
-def test_plots_closed(notebook_variables):
-    """ checks all figures closed """
-    assert 0 == len(matplotlib.pyplot.get_fignums())
+class TestNotebookVars:
+    """test notebook_vars function"""
+    @staticmethod
+    def test_notebook_vars(notebook_variables):
+        """ checks for a value known only after notebook execution"""
+        assert notebook_variables["c"] == notebook_variables["a"] + notebook_variables["b"]
+    
+    @staticmethod
+    def test_plots_closed():
+        """ checks all figures closed """
+        assert 0 == len(matplotlib.pyplot.get_fignums())
