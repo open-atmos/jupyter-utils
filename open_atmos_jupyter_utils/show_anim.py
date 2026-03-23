@@ -23,10 +23,15 @@ def show_anim(plot_func: Callable, frame_range: Iterable, duration=0.01, loop=0,
             fig.savefig(f"{tmpdirname}/{frame:05d}.png")
             plt.close(fig)
         __merge_images_into_gif(tmpdirname, gif_file, duration, loop)
+        show_gif(gif_file)
 
-        b64 = base64.b64encode(open(gif_file.basename,'rb').read()).decode("ascii")
-        display(HTML(f'<img src="data:image/gif;base64,{b64}" />'))
-        display(gif_file.make_link_widget())
+
+def show_gif(gif_file):
+    """displays an animation storing the gif file data into the notebook using
+    base-64 encoding"""
+    b64 = base64.b64encode(open(gif_file.basename,'rb').read()).decode("ascii")
+    display(HTML(f'<img src="data:image/gif;base64,{b64}" />'))
+    display(gif_file.make_link_widget())
 
 
 def __merge_images_into_gif(image_folder, gif_name, duration, loop):
