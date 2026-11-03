@@ -1,5 +1,6 @@
 # pylint: disable=missing-module-docstring
 
+import os
 from matplotlib import pyplot
 from ipywidgets import HBox
 from IPython.display import display
@@ -14,7 +15,8 @@ def show_plot(filename=None, fig=pyplot, inline_format='svg'):
     link = save_and_make_link(fig, filename)
     select_figure_formats(InteractiveShell.instance(), {inline_format})
     pyplot.show()
-    display(link)
+    if 'QUARTO_EXECUTE_INFO' not in os.environ:
+        display(link)
 
 
 def save_and_make_link(fig, filename=None):
