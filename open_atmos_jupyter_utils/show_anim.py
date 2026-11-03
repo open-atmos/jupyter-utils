@@ -31,7 +31,8 @@ def show_gif(gif_file):
     base-64 encoding"""
     b64 = base64.b64encode(open(gif_file.basename,'rb').read()).decode("ascii")
     display(HTML(f'<img src="data:image/gif;base64,{b64}" />'))
-    display(gif_file.make_link_widget())
+    if 'QUARTO_EXECUTE_INFO' not in os.environ:
+        display(gif_file.make_link_widget())
 
 
 def __merge_images_into_gif(image_folder, gif_name, duration, loop):
