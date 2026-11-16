@@ -12,7 +12,13 @@ from IPython.display import HTML, display
 from open_atmos_jupyter_utils.temporary_file import TemporaryFile
 
 
-def show_anim(plot_func: Callable, frame_range: Iterable, duration=0.01, loop: int=0, gif_file=None):
+def show_anim(
+        plot_func: Callable,
+        frame_range: Iterable,
+        duration=0.01,
+        loop: int=0,
+        gif_file=None
+):
     """Create and display an animated GIF.
 
     plot_func is called with one argument - the frame number from frame_range
