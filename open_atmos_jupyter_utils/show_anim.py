@@ -12,10 +12,24 @@ from IPython.display import HTML, display
 from open_atmos_jupyter_utils.temporary_file import TemporaryFile
 
 
-def show_anim(plot_func: Callable, frame_range: Iterable, duration=0.01, loop=0, gif_file=None):
-    """plot_func is called with one argument - the frame number from frame_range
+def show_anim(plot_func: Callable, frame_range: Iterable, duration=0.01, loop: int=0, gif_file=None):
+    """Create and display an animated GIF.
+
+    plot_func is called with one argument - the frame number from frame_range
     and is expected to return a matplotlib figure instance (on which savefig()
-    and close() are subsequently called)"""
+    and close() are subsequently called)
+
+    Parameters
+    ----------
+    duration : float or list
+        Passed to ImageIO's GIF writer as the frame duration (milliseconds).
+
+    loop : int
+        Passed to ImageIO's GIF writer as the loop count (0 = infinite).
+
+    gif_file: Optional[str]
+        Filename for the generated GIF.
+    """
     gif_file = TemporaryFile(suffix=".gif", filename=gif_file)
     with tempfile.TemporaryDirectory() as tmpdirname:
         for frame in frame_range:
